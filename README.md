@@ -37,11 +37,12 @@ This module extends Odoo's project management with team-based access control and
 
 ## Setup Instructions
 
-1. **Install the module** from the Apps menu
-2. **Create teams** via Project > Team Configuration
+1. **Install the module** from the Apps menu (project_extended_config, project_task_dashboard)
+   which exist in project category
+2. **Create teams** via Project > Team > Team Configuration
 3. **Assign team managers and members** to each team
 4. **Create projects** and assign them to teams
-5. **Users will automatically see only their team's projects**
+5. **Users will automatically see only their team's projects** Team > Team Projects
 
 ## Menu Structure
 
@@ -54,7 +55,7 @@ This module extends Odoo's project management with team-based access control and
 The module implements record-level security rules:
 
 - Users can only access projects where they are team members
-- Team managers(Admin) can manage their team's projects
+- Team managers(Admin) can manage their all team's projects
 
 ## Technical Details
 
