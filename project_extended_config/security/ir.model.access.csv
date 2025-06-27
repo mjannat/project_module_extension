@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_team_config,team_config.team_config,model_team_config,base.group_user,1,1,1,1
+access_team_config_member,team_config.member,model_team_config,base.group_user,1,1,1,0
+access_project_team_member,project.project.team.member,model_project_project,project_extended_config.group_project_team_member,1,0,0,0
+access_project_team_manager,project.project.team.manager,model_project_project,project_extended_config.group_project_team_manager,1,1,1,0
+access_project_team_admin,project.project.team.admin,model_project_project,project_extended_config.group_project_team_admin,1,1,1,1

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom Category for Team Management -->
+    <record id="module_category_team_management" model="ir.module.category">
+        <field name="name">Team Management</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Custom Groups for Team Management -->
+    <record id="group_project_team_member" model="res.groups">
+        <field name="name">Project Team Member</field>
+        <field name="category_id" ref="module_category_team_management"/>
+    </record>
+
+    <record id="group_project_team_manager" model="res.groups">
+        <field name="name">Project Team Manager</field>
+        <field name="category_id" ref="module_category_team_management"/>
+    </record>
+
+    <record id="group_project_team_admin" model="res.groups">
+        <field name="name">Project Team Administrator</field>
+        <field name="category_id" ref="module_category_team_management"/>
+    </record>
+</odoo>
