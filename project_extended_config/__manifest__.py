@@ -21,4 +21,7 @@
     'installable': True,
     'application': False,
     'auto_install': False,
+    'test': [
+        'tests/test_project_extended_config.py',
+    ],
 }
