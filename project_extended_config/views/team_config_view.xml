@@ -38,20 +38,29 @@
             <field name="model">team.config</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="name"/>
                     <field name="team_manager_id"/>
                     <field name="department_id"/>
-                    <field name="company_id"/>
                     <field name="system_code"/>
-                    <field name="team_member_ids"/>
+                    <field name="team_member_ids" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
 
         <record id="action_team_config" model="ir.actions.act_window">
-            <field name="name">Team Config</field>
+            <field name="name">Team Configuration</field>
             <field name="res_model">team.config</field>
             <field name="view_mode">tree,form</field>
             <field name="type">ir.actions.act_window</field>
+            <field name="context">{'search_default_my_teams': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first team configuration
+                </p>
+                <p>
+                    Configure teams for project management with managers and members.
+                </p>
+            </field>
         </record>
     </data>
 </odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the project form view to add custom team-related fields -->
+        <record id="inherited_project_view_form_inherit" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <!-- Inherit the standard project form view -->
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <!-- Insert custom fields before the 'partner_id' field in the form -->
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="team_id" string="Team"/>
+                    <field name="team_manager_id"/>
+                    <field name="team_member_ids" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+
+<!--        &lt;!&ndash; Add team-based filters to the project kanban/list search view &ndash;&gt;-->
+<!--        <record id="view_project_project_filter_team" model="ir.ui.view">-->
+<!--            <field name="name">project.project.filter.team</field>-->
+<!--            <field name="model">project.project</field>-->
+<!--            &lt;!&ndash; Inherit the default search/filter view for projects &ndash;&gt;-->
+<!--            <field name="inherit_id" ref="project.view_project_project_filter"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                &lt;!&ndash; Insert new filters after the "Followed by Me" filter &ndash;&gt;-->
+<!--                <xpath expr="//filter[@name='followed_by_me']" position="after">-->
+<!--                    &lt;!&ndash; Filter to show only projects where the current user is a team member &ndash;&gt;-->
+<!--                    <filter string="My Team Projects" name="my_team_projects"-->
+<!--                            domain="[('team_member_ids', 'in', uid)]"/>-->
+<!--                    &lt;!&ndash; Filter to show projects where the user is the team manager &ndash;&gt;-->
+<!--                    <filter string="My Managed Teams" name="my_managed_teams"-->
+<!--                            domain="[('team_manager_id', '=', uid)]"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- Custom action for opening project list view pre-filtered for team members -->
+        <record id="action_custom_project_view" model="ir.actions.act_window">
+            <field name="name">Project List</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">ir.actions.act_window</field>
+            <!-- Show only projects where current user is in team_member_ids -->
+            <field name="domain">[('team_member_ids', 'in', uid)]</field>
+            <!-- Help message shown when there are no projects -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first team configuration
+                </p>
+                <p>
+                    Configure teams for project management with managers and members.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

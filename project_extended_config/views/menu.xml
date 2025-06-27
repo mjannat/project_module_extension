@@ -1,6 +1,17 @@
 <odoo>
     <data>
-        <menuitem id="menu_team_config" name="Team Configuration" parent="project.menu_main_pm"
-                  action="action_team_config" sequence="1"/>
+        <!-- Main Team menu under the Project Management main menu -->
+        <menuitem id="menu_team_details" name="Team" sequence="1" parent="project.menu_main_pm" />
+
+        <!-- Submenu: Team Configuration - opens team configuration form view -->
+        <menuitem id="menu_team_config" name="Team Configuration" parent="menu_team_details"
+                  action="action_team_config" sequence="10" groups="base.group_user" />
+
+        <!-- Submenu: Team Projects - shows filtered project list by team -->
+        <menuitem id="menu_team_projects" name="Team Projects" parent="menu_team_details"
+                  action="action_custom_project_view" sequence="20" />
+
+        <!-- Default Odoo menu for will only visisble to admin -->
+        <!-- <menuitem id="project.menu_projects" groups="base.group_user"/> -->
     </data>
 </odoo>
