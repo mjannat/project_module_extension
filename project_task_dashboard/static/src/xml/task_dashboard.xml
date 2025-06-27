@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProjectTaskDashboard">
+        <div class="container mt-4">
+            <div class="card" style="max-width: 400px; margin: auto;">
+                <div class="card-header text-center">
+                    <h4>Total Tasks</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h2 id="ptd_total_tasks">0</h2>
+                    <div class="btn-group mt-3" role="group">
+                        <button class="btn btn-sm btn-primary ptd-task-filter-btn" data-period="this_week" type="button">This Week</button>
+                        <button class="btn btn-sm btn-primary ptd-task-filter-btn" data-period="this_month" type="button">This Month</button>
+                        <button class="btn btn-sm btn-secondary ptd-task-filter-btn" data-period="prev_week" type="button">Previous Week</button>
+                        <button class="btn btn-sm btn-secondary ptd-task-filter-btn" data-period="prev_month" type="button">Previous Month</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates> 
