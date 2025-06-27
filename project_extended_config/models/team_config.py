@@ -28,7 +28,7 @@ class TeamConfig(models.Model):
         help='Department to which the team belongs'
     )
     team_manager_id = fields.Many2one(
-        'hr.employee',
+        'res.users',
         string='Team Manager',
         required=True,
         tracking=True,
@@ -36,7 +36,7 @@ class TeamConfig(models.Model):
     )
     system_code = fields.Char(
         string='System Code',
-        required=True,
+        required=False,
         copy=False,
         readonly=True,
         help='Unique system code generated for internal tracking'
@@ -49,7 +49,7 @@ class TeamConfig(models.Model):
         help='Company associated with this team'
     )
     team_member_ids = fields.Many2many(
-        'hr.employee',
+        'res.users',
         string='Team Members',
         help='Employees assigned as members of the team'
     )
