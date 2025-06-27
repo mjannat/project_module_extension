@@ -76,4 +76,7 @@ The module implements record-level security rules:
   /odoo_16/odoo_16-server/odoo/addons,/odoo_16/odoo_16-server/addons,/odoo_16/project_module_extension
 - No new packages are required. Just create a virtual environment and install the Odoo 16 dependencies from
   requirements.txt, or pull the Odoo 16 image from Docker Hub.
+- If you want to run unit test just type this command '-c /odoo_16/odoo.conf -d project_task_26_06_25_18_35
+  --test-enable
+  --init=project_extended_config' 
 
