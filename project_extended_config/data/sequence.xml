@@ -3,7 +3,7 @@
     <data noupdate="0">
         <record id="team_sequence" model="ir.sequence">
             <field name="name">Team Configuration</field>
-            <field name="code">team.config</field>
+            <field name="code">team.config.sequence</field>
             <field name="prefix">Team/</field>
             <field name="padding">5</field>
         </record>

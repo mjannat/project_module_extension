@@ -1,24 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
-<!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
-            </t>
-          </dl>
-        </template>
--->
+        <record id="team_config_form_view" model="ir.ui.view">
+            <field name="name">team.config.form</field>
+            <field name="model">team.config</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Team Name"/>
+                            <h1>
+                                <field name="name" placeholder="Team Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="team_manager_id"/>
+                                <field name="department_id"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="system_code"/>
+                                <field name="team_member_ids" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="team_config_tree_view" model="ir.ui.view">
+            <field name="name">team.config.tree</field>
+            <field name="model">team.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="team_manager_id"/>
+                    <field name="department_id"/>
+                    <field name="company_id"/>
+                    <field name="system_code"/>
+                    <field name="team_member_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_team_config" model="ir.actions.act_window">
+            <field name="name">Team Config</field>
+            <field name="res_model">team.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="type">ir.actions.act_window</field>
+        </record>
     </data>
 </odoo>
