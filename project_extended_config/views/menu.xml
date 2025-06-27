@@ -11,7 +11,10 @@
         <menuitem id="menu_team_projects" name="Team Projects" parent="menu_team_details"
                   action="action_custom_project_view" sequence="20" />
 
-        <!-- Default Odoo menu for will only visisble to admin -->
-        <!-- <menuitem id="project.menu_projects" groups="base.group_user"/> -->
+
+        <!-- Default Odoo menu for will only visible to admin -->
+         <menuitem id="project.menu_projects" parent="project.menu_main_pm"
+                   name="Projects(Admin Only)"
+                   groups="base.group_system" sequence="1"/>
     </data>
 </odoo>
